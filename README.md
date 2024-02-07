@@ -1,3 +1,5 @@
+[![.NET](https://github.com/answerdigital/oxford-omop-script-generator/actions/workflows/dotnet.yml/badge.svg)](https://github.com/answerdigital/oxford-omop-script-generator/actions/workflows/dotnet.yml)
+
 # Oxford OMOP script generator
 
 This tool interrogates clinical data and attempts to detect the order in which the data files should be loaded and transformed.
