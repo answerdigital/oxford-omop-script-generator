@@ -268,6 +268,11 @@ internal class Program
             count++;
         }
 
+        if (stageOnly == false)
+        {
+            stringBuilder.AppendLine($".\\{configuration.OmopToolPath} purge");
+        }
+
         string fileName = stageOnly ? "stage-only.ps1" : "stage-and-transform.ps1";
 
         File.WriteAllText(Path.Combine(configuration.OutputPath!, fileName), stringBuilder.ToString());
