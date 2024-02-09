@@ -35,20 +35,21 @@ internal class Program
 
         foreach (var directory in Directory.GetDirectories(configuration.PathToSactDirectory!))
         {
-            if (int.TryParse(Path.GetDirectoryName(directory), out _)) // Check inside the 2020, 2021, 2022 directories etc
+            if (int.TryParse(Path.GetFileName(directory), out _)) // Check inside the 2020, 2021, 2022 directories etc
             {
-                files.AddRange(GetDirectoryFiles(configuration.PathToSactDirectory!, "sact", GetSactDate));
+                files.AddRange(GetDirectoryFiles(directory, "sact", GetSactDate));
             }
         }
 
         return files;
     }
     
-    private static DateTime? GetSactDate(string fileName)
+    private static DateTime? GetSactDate(string filePath)
     {
+        string fileName = Path.GetFileName(filePath);
         // expected format "SACT_v3-20230101-20230131.csv"
 
-        string dateText = fileName.Substring(7, 8);
+        string dateText = fileName.Substring(8, 8);
 
         return ParseShortDate(dateText);
     }
