@@ -98,8 +98,6 @@ internal class Program
     {
         foreach (var file in Directory.GetFiles(path).Concat(Directory.GetDirectories(path)))
         {
-            Console.WriteLine($"Parsing {file}");
-
             DateTime? date = dateExtractor(file);
 
             if (date == null)
